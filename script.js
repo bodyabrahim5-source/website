@@ -287,75 +287,154 @@ window.addEventListener('click', (e) => {
     if (e.target === codeModal) codeModal.style.display = 'none';
 });
 
-// 9. Interactive Terminal Logic
+// ==========================================
+// 9. Advanced Interactive CLI Terminal Logic
+// ==========================================
 const terminalInput = document.getElementById('terminalInput');
 const terminalOutput = document.getElementById('terminalOutput');
 
+let commandHistory = [];
+let historyIndex = -1;
+
+// الأوامر المتاحة واستجاباتها بتنسيقات HTML
 const commands = {
-    help: "Available commands:<br>" +
-          "- <span class='highlight'>skills</span>: View IT & programming skills<br>" +
-          "- <span class='highlight'>networking</span>: IT Infrastructure capabilities<br>" +
-          "- <span class='highlight'>projects</span>: List featured work<br>" +
-          "- <span class='highlight'>ipconfig</span>: Simulate network interface info<br>" +
-          "- <span class='highlight'>contact</span>: Open WhatsApp link<br>" +
-          "- <span class='highlight'>clear</span>: Clear terminal console",
-          
-    skills: "Technical Skills:<br>" +
-            "- Network Administration & Infrastructure Security<br>" +
-            "- System Diagnostics & Automation (Python)<br>" +
-            "- Responsive Web Development (HTML/CSS/JS)<br>" +
-            "- Desktop POS & Management Systems",
-            
-    networking: "Networking & IT Focus:<br>" +
-                "- Router & Switch Configuration<br>" +
-                "- Subnetting, VLANs, TCP/IP Suite<br>" +
-                "- Active Directory & System Support<br>" +
-                "- Network Security & Latency Auditing",
-                
-    projects: "Featured Projects:<br>" +
-              "1. Interactive Birthday Web App<br>" +
-              "2. Tahabeesh Restaurant Web App<br>" +
-              "3. Gym & POS Management System Logic<br>" +
-              "4. Network Diagnostics & Port Scanner<br>" +
-              "5. System Monitoring Automation Script",
-              
-    ipconfig: "eth0: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500<br>" +
-              "inet 192.168.1.100  netmask 255.255.255.0  gateway 192.168.1.1<br>" +
-              "status: <span style='color:#27c93f;'>Connected</span>",
-              
-    contact: "Redirecting to WhatsApp... <a href='https://wa.me/201091822235' target='_blank' style='color:#58a6ff;'>Click here if not redirected automatically.</a>"
+    help: `
+<span style="color:#58a6ff; font-weight:bold;">Available Commands:</span><br>
+- <span class="highlight">whoami</span>       : Display current user role<br>
+- <span class="highlight">skills</span>       : List technical skills & tools<br>
+- <span class="highlight">cat about.txt</span>: Display quick biography<br>
+- <span class="highlight">projects</span>     : Show top projects list<br>
+- <span class="highlight">ipconfig</span>     : Display simulated network interfaces<br>
+- <span class="highlight">contact</span>      : Quick link to WhatsApp<br>
+- <span class="highlight">date</span>         : Show current system date & time<br>
+- <span class="highlight">clear</span>        : Clear the console screen
+    `,
+    
+    whoami: `<span style="color:#27c93f;">guest@portfolio</span> (Guest User - Viewing Abdelrahman's Portfolio)`,
+    
+    "cat about.txt": `<span style="color:#ffbd2e;">[BIO]</span> Abdelrahman is an IT & Network Engineer specializing in network security, system automation with Python, and web/POS applications.`,
+    
+    skills: `
+<span style="color:#58a6ff;">[+] IT Infrastructure:</span> Networking, Subnetting, CLI, Router Configuration<br>
+<span style="color:#58a6ff;">[+] Web Development:</span> HTML5, CSS3, JavaScript (DOM, Dynamic Systems)<br>
+<span style="color:#58a6ff;">[+] Python Solutions:</span> Desktop POS Systems, Automation Tools, Network Utilities
+    `,
+    
+    projects: `
+1. <span style="color:#58a6ff;">Interactive Birthday Web App</span> - [Live Demo Available]<br>
+2. <span style="color:#58a6ff;">Tahabeesh Restaurant Web App</span> - [Live Demo Available]<br>
+3. <span style="color:#58a6ff;">Gym & POS Management Logic</span> - [Read Only Showcase]<br>
+4. <span style="color:#58a6ff;">The Grand Lounge POS</span> - [Desktop System Showcase]<br>
+5. <span style="color:#58a6ff;">Network Diagnostics & Port Scanner</span> - [Python Script]
+    `,
+    
+    ipconfig: `
+eth0: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500<br>
+inet <span style="color:#58a6ff;">192.168.1.105</span>  netmask 255.255.255.0  broadcast 192.168.1.255<br>
+gateway <span style="color:#ffbd2e;">192.168.1.1</span><br>
+Status: <span style="color:#27c93f; font-weight:bold;">Active / Connected</span>
+    `,
+    
+    sudo: `<span style="color:#ff5f56;">[Permission Denied]</span> Guest users do not have root access!`,
+    
+    date: () => new Date().toLocaleString('en-US', { dateStyle: 'full', timeStyle: 'medium' }),
+    
+    contact: `Redirecting to WhatsApp... <a href="https://wa.me/201091822235" target="_blank" style="color:#58a6ff; text-decoration:underline;">Click Here to Chat</a>`
 };
 
 if (terminalInput) {
     terminalInput.addEventListener('keydown', function(e) {
+        // التنقل بالأوامر السابقة عند الضغط على الأسهم
+        if (e.key === 'ArrowUp') {
+            if (historyIndex > 0) {
+                historyIndex--;
+                this.value = commandHistory[historyIndex];
+            }
+            return;
+        } else if (e.key === 'ArrowDown') {
+            if (historyIndex < commandHistory.length - 1) {
+                historyIndex++;
+                this.value = commandHistory[historyIndex];
+            } else {
+                historyIndex = commandHistory.length;
+                this.value = '';
+            }
+            return;
+        }
+
+        // عند الضغط على Enter لإرسال الأمر
         if (e.key === 'Enter') {
-            const inputVal = this.value.trim().toLowerCase();
+            const inputVal = this.value.trim();
+            const lowerInput = inputVal.toLowerCase();
             this.value = '';
 
             if (inputVal === '') return;
 
+            // حفظ الأمر في السجل
+            commandHistory.push(inputVal);
+            historyIndex = commandHistory.length;
+
+            // عرض الأمر المكتوب في الـ Terminal
             const cmdLine = document.createElement('div');
             cmdLine.className = 'term-line';
-            cmdLine.innerHTML = `<span style='color:#58a6ff;'>guest@abdelrahman:~$</span> ${inputVal}`;
+            cmdLine.innerHTML = `<span style="color:#58a6ff; font-weight:bold;">guest@abdelrahman:~$</span> ${inputVal}`;
             terminalOutput.appendChild(cmdLine);
 
+            // معالجة الاستجابة
             const resLine = document.createElement('div');
             resLine.className = 'term-line';
 
-            if (inputVal === 'clear') {
+            if (lowerInput === 'clear') {
                 terminalOutput.innerHTML = '';
                 return;
-            } else if (commands[inputVal]) {
-                resLine.innerHTML = commands[inputVal];
-                if (inputVal === 'contact') {
+            } else if (commands[lowerInput]) {
+                const response = commands[lowerInput];
+                resLine.innerHTML = typeof response === 'function' ? response() : response;
+                
+                if (lowerInput === 'contact') {
                     window.open('https://wa.me/201091822235', '_blank');
                 }
             } else {
-                resLine.innerHTML = `Command not recognized: '<span style='color:#ff5f56;'>${inputVal}</span>'. Type '<span class='highlight'>help</span>' for options.`;
+                resLine.innerHTML = `<span style="color:#ff5f56;">Command not found: '${inputVal}'.</span> Type '<span class="highlight">help</span>' to see valid commands.`;
             }
 
             terminalOutput.appendChild(resLine);
             terminalOutput.scrollTop = terminalOutput.scrollHeight;
         }
+    });
+}
+// ==========================================
+// 10. Copy Etisalat Cash Number & Toast Logic
+// ==========================================
+
+// وظيفة إظهار إشعار Toast المودرن
+function showToast(message) {
+    let toast = document.getElementById('toastNotification');
+    
+    // إنشاء عنصر Toast لو مش موجود في الصفحة
+    if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'toastNotification';
+        toast.className = 'toast-notification';
+        toast.innerHTML = `<i class="fa-solid fa-circle-check"></i> <span id="toastMessage"></span>`;
+        document.body.appendChild(toast);
+    }
+
+    const toastMessage = document.getElementById('toastMessage') || toast.querySelector('span');
+    toastMessage.textContent = message;
+
+    toast.classList.add('show');
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 3000);
+}
+
+// وظيفة نسخ رقم إتصالات كاش
+function copyCashNumber() {
+    const cashNum = "01141702187";
+    navigator.clipboard.writeText(cashNum).then(() => {
+        showToast("تم نسخ رقم إتصالات كاش بنجاح!");
+    }).catch(() => {
+        showToast("حدث خطأ أثناء نسخ الرقم.");
     });
 }

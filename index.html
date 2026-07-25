@@ -302,14 +302,17 @@
                         <h4 id="priceAmount" style="color: var(--accent-color); font-size: 1.5rem; margin-top: 5px;">0 EGP</h4>
                     </div>
 
-                    <!-- Etisalat Cash Transfer Info Box -->
+                    <!-- Etisalat Cash Transfer Info Box with Copy Button -->
                     <div style="background: var(--bg-color); border: 1px solid var(--border-color); padding: 15px; border-radius: 12px; font-size: 0.9rem; line-height: 1.6;">
                         <p style="font-weight: 600; color: #27c93f; margin-bottom: 5px;">
                             <i class="fa-solid fa-wallet"></i> طريقة الدفع والتأكيد (إتصالات كاش):
                         </p>
                         <p>لتأكيد طلب الباقة، يتم تحويل المبلغ أو العربون المفضل على الرقم التالي:</p>
-                        <div style="background: var(--card-bg); padding: 8px 12px; border-radius: 8px; font-family: 'Fira Code', monospace; font-size: 1.1rem; color: var(--accent-color); font-weight: bold; display: inline-block; margin: 8px 0;">
-                            01141702187
+                        <div style="background: var(--card-bg); padding: 8px 14px; border-radius: 8px; font-family: 'Fira Code', monospace; font-size: 1.1rem; color: var(--accent-color); font-weight: bold; display: inline-flex; align-items: center; gap: 12px; margin: 8px 0;">
+                            <span id="cashNumber">01141702187</span>
+                            <button type="button" onclick="copyCashNumber()" style="background: transparent; border: none; color: var(--text-color); cursor: pointer; font-size: 0.95rem;" title="نسخ الرقم">
+                                <i class="fa-regular fa-copy"></i>
+                            </button>
                         </div>
                         <p style="font-size: 0.82rem; color: var(--subtext-color);">* بعد التحويل، اضغط على الأزرار بالأسفل للانتقال لتأكيد الطلب مباشرة عبر الواتساب.</p>
                     </div>
@@ -323,6 +326,16 @@
             </div>
         </section>
     </main>
+
+    <!-- Floating WhatsApp Quick Button -->
+    <a href="https://wa.me/201091822235" target="_blank" class="floating-whatsapp" aria-label="Quick WhatsApp Contact">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Toast Notification Box -->
+    <div id="toastNotification" class="toast-notification">
+        <i class="fa-solid fa-circle-check"></i> <span id="toastMessage">تمت العملية بنجاح!</span>
+    </div>
 
     <!-- Details Modal Popup Structure -->
     <div class="modal" id="projectModal">
