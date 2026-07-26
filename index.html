@@ -14,25 +14,34 @@
     <header>
         <a href="#" class="logo">Abdelrahman</a>
         <nav class="navigation">
-            <a href="#services">Services</a>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#terminal">Terminal</a>
-            <a href="#contact">Contact</a>
+            <a href="#services" data-i18n="nav_services">Services</a>
+            <a href="#about" data-i18n="nav_about">About</a>
+            <a href="#projects" data-i18n="nav_projects">Projects</a>
+            <a href="#terminal" data-i18n="nav_terminal">Terminal</a>
+            <a href="#contact" data-i18n="nav_contact">Contact</a>
         </nav>
-        <!-- Dark/Light Theme Toggle -->
-        <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
-            <i class="fa-solid fa-moon"></i>
-        </button>
+        
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <!-- Dark/Light Theme Toggle -->
+            <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+
+            <!-- Language Toggle Button -->
+            <button id="lang-toggle" class="theme-btn" aria-label="Toggle Language" style="display: flex; align-items: center; gap: 6px; padding: 0 12px; width: auto; font-weight: bold; cursor: pointer;">
+                <i class="fa-solid fa-globe"></i>
+                <span id="lang-text">AR</span>
+            </button>
+        </div>
     </header>
 
     <main>
         <!-- Main / Hero Section -->
         <section class="main reveal">
             <div class="main-content">
-                <h2>Hello, I'm Abdelrahman<br><span id="typing-text">IT & Network Engineer</span></h2>
-                <h3>Building secure networks, custom systems & responsive websites</h3>
-                <a href="#projects" class="main-btn">View My Work</a>
+                <h2><span data-i18n="hero_hello">Hello, I'm Abdelrahman</span><br><span id="typing-text">IT & Network Engineer</span></h2>
+                <h3 data-i18n="hero_sub">Building secure networks, custom systems & responsive websites</h3>
+                <a href="#projects" class="main-btn" data-i18n="hero_btn">View My Work</a>
                 
                 <div class="social-icons">
                     <a href="https://www.facebook.com/share/1BzahtT2sr/" target="_blank" class="facebook" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
@@ -51,7 +60,7 @@
 
         <!-- Services Section -->
         <section class="cards reveal" id="services">
-            <h2 class="title">My Expertise</h2>
+            <h2 class="title" data-i18n="services_title">My Expertise</h2>
             <div class="content">
 
                 <!-- IT & Networking Card -->
@@ -60,8 +69,8 @@
                         <i class="fa-solid fa-network-wired"></i>
                     </div>
                     <div class="info">
-                        <h3>IT & Networking Infrastructure</h3>
-                        <p>Managing network configurations, system diagnostics, troubleshooting, and infrastructure security.</p>
+                        <h3 data-i18n="srv1_title">IT & Networking Infrastructure</h3>
+                        <p data-i18n="srv1_desc">Managing network configurations, system diagnostics, troubleshooting, and infrastructure security.</p>
                         <div class="tech-stack">
                             <span class="badge"><i class="fa-solid fa-server"></i> Networking</span>
                             <span class="badge"><i class="fa-solid fa-shield-halved"></i> Security</span>
@@ -76,8 +85,8 @@
                         <i class="fa-solid fa-code"></i>
                     </div>
                     <div class="info">
-                        <h3>Web Development</h3>
-                        <p>Designing and building modern, responsive websites using HTML5, CSS3, and JavaScript.</p>
+                        <h3 data-i18n="srv2_title">Web Development</h3>
+                        <p data-i18n="srv2_desc">Designing and building modern, responsive websites using HTML5, CSS3, and JavaScript.</p>
                         <div class="tech-stack">
                             <span class="badge"><i class="fa-brands fa-html5"></i> HTML</span>
                             <span class="badge"><i class="fa-brands fa-css3-alt"></i> CSS</span>
@@ -92,8 +101,8 @@
                         <i class="fa-brands fa-python"></i>
                     </div>
                     <div class="info">
-                        <h3>Python & POS Systems</h3>
-                        <p>Developing powerful Python automation tools, custom scripts, and desktop POS cashier systems (Read Only / Showcase).</p>
+                        <h3 data-i18n="srv3_title">Python & POS Systems</h3>
+                        <p data-i18n="srv3_desc">Developing powerful Python automation tools, custom scripts, and desktop POS cashier systems (Read Only / Showcase).</p>
                         <div class="tech-stack">
                             <span class="badge"><i class="fa-brands fa-python"></i> Python</span>
                             <span class="badge"><i class="fa-solid fa-cash-register"></i> POS Systems</span>
@@ -106,17 +115,17 @@
 
         <!-- About & Detailed Skills Section -->
         <section class="about reveal" id="about">
-            <h2 class="title">About Me & Skills</h2>
+            <h2 class="title" data-i18n="about_title">About Me & Skills</h2>
             <div class="about-container">
                 <div class="about-text">
-                    <h3>Engineering reliable IT networks & intelligent software solutions</h3>
-                    <p>I am a computer engineer specializing in IT support, network administration, Python scripting, and full-featured desktop & web applications.</p>
+                    <h3 data-i18n="about_heading">Engineering reliable IT networks & intelligent software solutions</h3>
+                    <p data-i18n="about_text">I am a computer engineer specializing in IT support, network administration, Python scripting, and full-featured desktop & web applications.</p>
                 </div>
                 
                 <div class="skills-box">
                     <div class="skill-item">
                         <div class="skill-info">
-                            <span>IT Infrastructure & Networking</span>
+                            <span data-i18n="skill_net">IT Infrastructure & Networking</span>
                             <span>90%</span>
                         </div>
                         <div class="progress-line"><span style="width: 90%;"></span></div>
@@ -132,7 +141,7 @@
 
                     <div class="skill-item">
                         <div class="skill-info">
-                            <span>Python & System Automation</span>
+                            <span data-i18n="skill_python">Python & System Automation</span>
                             <span>85%</span>
                         </div>
                         <div class="progress-line"><span style="width: 85%;"></span></div>
@@ -143,35 +152,35 @@
 
         <!-- Projects Section with Filter -->
         <section class="projects reveal" id="projects">
-            <h2 class="title">My Featured Projects</h2>
+            <h2 class="title" data-i18n="projects_title">My Featured Projects</h2>
             
             <!-- Live Search Bar -->
             <div class="search-box">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" id="projectSearch" placeholder="Search projects by title or keyword...">
+                <input type="text" id="projectSearch" placeholder="Search projects by title or keyword..." data-i18n-ph="search_ph">
             </div>
 
             <!-- Filter Buttons -->
             <div class="filter-buttons">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="networking">IT & Networking</button>
-                <button class="filter-btn" data-filter="web">Web Development</button>
-                <button class="filter-btn" data-filter="python">Python & Systems</button>
+                <button class="filter-btn active" data-filter="all" data-i18n="filter_all">All</button>
+                <button class="filter-btn" data-filter="networking" data-i18n="filter_net">IT & Networking</button>
+                <button class="filter-btn" data-filter="web" data-i18n="filter_web">Web Development</button>
+                <button class="filter-btn" data-filter="python" data-i18n="filter_python">Python & Systems</button>
             </div>
 
             <div class="project-grid">
                 
-                <!-- Project 1: Birthday Web App (NEW) -->
+                <!-- Project 1: Birthday Web App -->
                 <div class="project-card" data-category="web">
                     <div class="project-img">
                         <i class="fa-solid fa-cake-candles"></i>
                     </div>
                     <div class="project-info">
-                        <h3>Interactive Birthday Website</h3>
-                        <p>Custom digital birthday celebration web app with interactive visuals, multimedia, and personalized gift presentation.</p>
+                        <h3 data-i18n="p1_title">Interactive Birthday Website</h3>
+                        <p data-i18n="p1_desc">Custom digital birthday celebration web app with interactive visuals, multimedia, and personalized gift presentation.</p>
                         <div class="project-actions">
-                            <a href="https://bodyabrahim5-source.github.io/mazen/" target="_blank" class="project-btn">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                            <button class="modal-trigger" data-title="Interactive Birthday Web App" data-desc="A personalized birthday gift web application built with responsive web technologies, customized animations, ambient soundtrack integration, and interactive user flows.">Details</button>
+                            <a href="https://bodyabrahim5-source.github.io/mazen/" target="_blank" class="project-btn"><span data-i18n="btn_demo">Live Demo</span> <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            <button class="modal-trigger" data-title="Interactive Birthday Web App" data-desc="A personalized birthday gift web application built with responsive web technologies, customized animations, ambient soundtrack integration, and interactive user flows." data-i18n="btn_details">Details</button>
                         </div>
                     </div>
                 </div>
@@ -182,26 +191,26 @@
                         <i class="fa-solid fa-utensils"></i>
                     </div>
                     <div class="project-info">
-                        <h3>Tahabeesh Restaurant</h3>
-                        <p>Interactive web application for Tahabeesh Restaurant featuring digital menus and modern responsive user interface.</p>
+                        <h3 data-i18n="p2_title">Tahabeesh Restaurant</h3>
+                        <p data-i18n="p2_desc">Interactive web application for Tahabeesh Restaurant featuring digital menus and modern responsive user interface.</p>
                         <div class="project-actions">
-                            <a href="https://bodyabrahim5-source.github.io/tahabeesh-restaurant/" target="_blank" class="project-btn">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                            <button class="modal-trigger" data-title="Tahabeesh Restaurant" data-desc="A full-featured responsive web application designed for Tahabeesh Restaurant. Built with modern HTML, CSS, and interactive JavaScript features for optimal mobile experience.">Details</button>
+                            <a href="https://bodyabrahim5-source.github.io/tahabeesh-restaurant/" target="_blank" class="project-btn"><span data-i18n="btn_demo">Live Demo</span> <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            <button class="modal-trigger" data-title="Tahabeesh Restaurant" data-desc="A full-featured responsive web application designed for Tahabeesh Restaurant. Built with modern HTML, CSS, and interactive JavaScript features for optimal mobile experience." data-i18n="btn_details">Details</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 3: Gym Management & POS System (Read-Only) -->
+                <!-- Project 3: Gym Management & POS System -->
                 <div class="project-card" data-category="python">
                     <div class="project-img">
                         <i class="fa-solid fa-dumbbell"></i>
                     </div>
                     <div class="project-info">
-                        <h3>Gym & POS Management System <span style="font-size:0.75rem; color:var(--accent-color);">(Read Only)</span></h3>
-                        <p>Comprehensive offline-capable gym membership, subscriber tracking, and sales cashier system logic showcase.</p>
+                        <h3><span data-i18n="p3_title">Gym & POS Management System</span> <span style="font-size:0.75rem; color:var(--accent-color);">(Read Only)</span></h3>
+                        <p data-i18n="p3_desc">Comprehensive offline-capable gym membership, subscriber tracking, and sales cashier system logic showcase.</p>
                         <div class="project-actions">
-                            <button class="project-btn view-code-btn" data-project="gym">View Logic <i class="fa-solid fa-code"></i></button>
-                            <button class="modal-trigger" data-title="Gym & POS System (Read-Only Showcase)" data-desc="Complete management system logic designed for gym subscriber management, subscription expiry tracking, membership plans, and item sales logging.">Details</button>
+                            <button class="project-btn view-code-btn" data-project="gym"><span data-i18n="btn_logic">View Logic</span> <i class="fa-solid fa-code"></i></button>
+                            <button class="modal-trigger" data-title="Gym & POS System (Read-Only Showcase)" data-desc="Complete management system logic designed for gym subscriber management, subscription expiry tracking, membership plans, and item sales logging." data-i18n="btn_details">Details</button>
                         </div>
                     </div>
                 </div>
@@ -212,11 +221,11 @@
                         <i class="fa-solid fa-couch"></i>
                     </div>
                     <div class="project-info">
-                        <h3>The Grand Lounge POS</h3>
-                        <p>Full desktop management system designed for cafes and lounge cashier management, order tracking, and sales reporting.</p>
+                        <h3 data-i18n="p4_title">The Grand Lounge POS</h3>
+                        <p data-i18n="p4_desc">Full desktop management system designed for cafes and lounge cashier management, order tracking, and sales reporting.</p>
                         <div class="project-actions">
-                            <button class="project-btn">View Code <i class="fa-brands fa-github"></i></button>
-                            <button class="modal-trigger" data-title="The Grand Lounge POS" data-desc="Desktop-grade POS system engineered for lounge administration. Manages real-time order processing, table management, sales reports, and receipt generation.">Details</button>
+                            <button class="project-btn"><span data-i18n="btn_code">View Code</span> <i class="fa-brands fa-github"></i></button>
+                            <button class="modal-trigger" data-title="The Grand Lounge POS" data-desc="Desktop-grade POS system engineered for lounge administration. Manages real-time order processing, table management, sales reports, and receipt generation." data-i18n="btn_details">Details</button>
                         </div>
                     </div>
                 </div>
@@ -227,11 +236,11 @@
                         <i class="fa-solid fa-shield-halved"></i>
                     </div>
                     <div class="project-info">
-                        <h3>Network Diagnostics & Port Scanner</h3>
-                        <p>Multi-threaded network utility tool written in Python for port scanning, latency monitoring, and subnet discovery.</p>
+                        <h3 data-i18n="p5_title">Network Diagnostics & Port Scanner</h3>
+                        <p data-i18n="p5_desc">Multi-threaded network utility tool written in Python for port scanning, latency monitoring, and subnet discovery.</p>
                         <div class="project-actions">
-                            <button class="project-btn view-code-btn" data-project="scanner">View Code <i class="fa-solid fa-code"></i></button>
-                            <button class="modal-trigger" data-title="Network Diagnostics & Port Scanner" data-desc="A Python-powered network diagnostic script designed to scan active IP subnets, audit open TCP/UDP ports, and check network latency for system security assessments.">Details</button>
+                            <button class="project-btn view-code-btn" data-project="scanner"><span data-i18n="btn_code">View Code</span> <i class="fa-solid fa-code"></i></button>
+                            <button class="modal-trigger" data-title="Network Diagnostics & Port Scanner" data-desc="A Python-powered network diagnostic script designed to scan active IP subnets, audit open TCP/UDP ports, and check network latency for system security assessments." data-i18n="btn_details">Details</button>
                         </div>
                     </div>
                 </div>
@@ -242,11 +251,11 @@
                         <i class="fa-brands fa-python"></i>
                     </div>
                     <div class="project-info">
-                        <h3>System Monitoring & Automation</h3>
-                        <p>Custom Python script built for automated system monitoring, data processing, and local network management tasks.</p>
+                        <h3 data-i18n="p6_title">System Monitoring & Automation</h3>
+                        <p data-i18n="p6_desc">Custom Python script built for automated system monitoring, data processing, and local network management tasks.</p>
                         <div class="project-actions">
-                            <button class="project-btn view-code-btn" data-project="automation">View Code <i class="fa-solid fa-code"></i></button>
-                            <button class="modal-trigger" data-title="System Monitoring & Automation" data-desc="Automated tool engineered using Python to handle system diagnostic workflows, ping checks, and routine administrative maintenance tasks.">Details</button>
+                            <button class="project-btn view-code-btn" data-project="automation"><span data-i18n="btn_code">View Code</span> <i class="fa-solid fa-code"></i></button>
+                            <button class="modal-trigger" data-title="System Monitoring & Automation" data-desc="Automated tool engineered using Python to handle system diagnostic workflows, ping checks, and routine administrative maintenance tasks." data-i18n="btn_details">Details</button>
                         </div>
                     </div>
                 </div>
@@ -256,7 +265,7 @@
 
         <!-- Interactive Terminal Section -->
         <section class="terminal-section reveal" id="terminal">
-            <h2 class="title">Interactive CLI Console</h2>
+            <h2 class="title" data-i18n="term_title">Interactive CLI Console</h2>
             <div class="terminal-window">
                 <div class="terminal-header">
                     <div class="terminal-buttons">
@@ -278,51 +287,93 @@
 
         <!-- Contact & Ordering Section -->
         <section class="contact reveal" id="contact">
-            <h2 class="title">Get In Touch & Order Service</h2>
+            <h2 class="title" data-i18n="contact_title">Get In Touch & Order Service</h2>
             <div class="contact-container">
                 <form class="contact-form" id="whatsappForm">
                     <div class="input-group">
-                        <input type="text" id="clientName" placeholder="Your Name" required>
-                        <input type="email" id="clientEmail" placeholder="Your Email" required>
+                        <input type="text" id="clientName" placeholder="Your Name" data-i18n-ph="ph_name" required>
+                        <input type="email" id="clientEmail" placeholder="Your Email" data-i18n-ph="ph_email" required>
                     </div>
 
-                    <!-- Service Selection with Data Price Attribute -->
+                    <!-- Service Selection -->
                     <select id="serviceType" required>
-                        <option value="" disabled selected>Select Needed Service / الخدمة المطلوبة</option>
-                        <option value="birthday" data-price="1000">Interactive Birthday Website (موقع عيد ميلاد تفاعلي)</option>
-                        <option value="web" data-price="3000">Custom Web Development (تصميم موقع ويب مخصص)</option>
-                        <option value="pos" data-price="6000">Gym & POS System (سيستم كاشير وإدارة الجيم)</option>
-                        <option value="automation" data-price="1500">Python Automation & Networking (حلول أتمتة وشبكات)</option>
-                        <option value="custom" data-price="0">Custom Project / Other (مشروع آخر - حسب الاتفاق)</option>
+                        <option value="" disabled selected data-i18n="opt_select">Select Needed Service / الخدمة المطلوبة</option>
+                        <option value="birthday" data-price="1000" data-i18n="opt_bday">Interactive Birthday Website (موقع عيد ميلاد تفاعلي)</option>
+                        <option value="web" data-price="3000" data-i18n="opt_web">Custom Web Development (تصميم موقع ويب مخصص)</option>
+                        <option value="pos" data-price="6000" data-i18n="opt_pos">Gym & POS System (سيستم كاشير وإدارة الجيم)</option>
+                        <option value="automation" data-price="1500" data-i18n="opt_auto">Python Automation & Networking (حلول أتمتة وشبكات)</option>
+                        <option value="custom" data-price="0" data-i18n="opt_custom">Custom Project / Other (مشروع آخر - حسب الاتفاق)</option>
                     </select>
 
                     <!-- Dynamic Price Display Box -->
                     <div id="priceDisplay" style="display: none; background: rgba(78, 158, 255, 0.1); border: 1px solid var(--accent-color); padding: 15px; border-radius: 12px; text-align: center;">
-                        <span style="color: var(--subtext-color); font-size: 0.9rem;">تكلفة الباقة المختارة:</span>
+                        <span style="color: var(--subtext-color); font-size: 0.9rem;" data-i18n="cost_label">تكلفة الباقة المختارة:</span>
                         <h4 id="priceAmount" style="color: var(--accent-color); font-size: 1.5rem; margin-top: 5px;">0 EGP</h4>
                     </div>
 
-                    <!-- Etisalat Cash Transfer Info Box with Copy Button -->
+                    <!-- Etisalat Cash Transfer Info Box -->
                     <div style="background: var(--bg-color); border: 1px solid var(--border-color); padding: 15px; border-radius: 12px; font-size: 0.9rem; line-height: 1.6;">
-                        <p style="font-weight: 600; color: #27c93f; margin-bottom: 5px;">
+                        <p style="font-weight: 600; color: #27c93f; margin-bottom: 5px;" data-i18n="cash_title">
                             <i class="fa-solid fa-wallet"></i> طريقة الدفع والتأكيد (إتصالات كاش):
                         </p>
-                        <p>لتأكيد طلب الباقة، يتم تحويل المبلغ أو العربون المفضل على الرقم التالي:</p>
+                        <p data-i18n="cash_desc">لتأكيد طلب الباقة، يتم تحويل المبلغ أو العربون المفضل على الرقم التالي:</p>
                         <div style="background: var(--card-bg); padding: 8px 14px; border-radius: 8px; font-family: 'Fira Code', monospace; font-size: 1.1rem; color: var(--accent-color); font-weight: bold; display: inline-flex; align-items: center; gap: 12px; margin: 8px 0;">
                             <span id="cashNumber">01141702187</span>
                             <button type="button" onclick="copyCashNumber()" style="background: transparent; border: none; color: var(--text-color); cursor: pointer; font-size: 0.95rem;" title="نسخ الرقم">
                                 <i class="fa-regular fa-copy"></i>
                             </button>
                         </div>
-                        <p style="font-size: 0.82rem; color: var(--subtext-color);">* بعد التحويل، اضغط على الأزرار بالأسفل للانتقال لتأكيد الطلب مباشرة عبر الواتساب.</p>
+                        <p style="font-size: 0.82rem; color: var(--subtext-color);" data-i18n="cash_note">* بعد التحويل، اضغط على الأزرار بالأسفل للانتقال لتأكيد الطلب مباشرة عبر الواتساب.</p>
                     </div>
 
-                    <textarea id="projectDetails" placeholder="Describe the project or work you need..." rows="4" required></textarea>
+                    <textarea id="projectDetails" placeholder="Describe the project or work you need..." data-i18n-ph="ph_desc" rows="4" required></textarea>
                     
                     <button type="submit" class="main-btn send-btn">
-                        تأكيد الطلب والتواصل عبر الواتساب <i class="fa-brands fa-whatsapp"></i>
+                        <span data-i18n="btn_submit">تأكيد الطلب والتواصل عبر الواتساب</span> <i class="fa-brands fa-whatsapp"></i>
                     </button>
                 </form>
+            </div>
+        </section>
+
+        <!-- Testimonials & Feedback Section -->
+        <section id="testimonials" class="testimonials-section reveal">
+            <div class="container">
+                <h2 class="section-title">آراء العملاء والزوار</h2>
+                
+                <!-- Testimonials Cards Grid (Firebase Dynamic Loader) -->
+                <div class="testimonials-grid" id="testimonialsGrid">
+                    <!-- Static Fallback Testimonials -->
+                    <div class="testimonial-card">
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p>"شغل عالي جداً واحترافي، سيستم الكاشير والشبكات تم ظبطهم بأعلى كفاءة. شكراً مهندس عبدالرحمن!"</p>
+                        <h4>محمد إبراهيم</h4>
+                        <span class="client-title">صاحب مطعم</span>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p>"الموقع وتصميم الويب ممتاز وسريع جداً، والأداء فاق توقعاتي. أنصح بالتعامل معه بشدة."</p>
+                        <h4>محمود أحمد</h4>
+                        <span class="client-title">عميل موقع تفاعلي</span>
+                    </div>
+                </div>
+
+                <!-- Add Feedback Form -->
+                <div class="add-feedback-box">
+                    <h3>سيب رأيك أو شكراً في الموقع! 🌟</h3>
+                    <form id="feedbackForm">
+                        <div class="form-group">
+                            <input type="text" id="feedbackName" placeholder="اسمك الكريم" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="feedbackText" placeholder="اكتب رأيك أو تقييمك للموقع أو الخدمات..." rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit-feedback">إرسال التقييم</button>
+                    </form>
+                </div>
             </div>
         </section>
     </main>
@@ -334,7 +385,7 @@
 
     <!-- Toast Notification Box -->
     <div id="toastNotification" class="toast-notification">
-        <i class="fa-solid fa-circle-check"></i> <span id="toastMessage">تمت العملية بنجاح!</span>
+        <i class="fa-solid fa-circle-check"></i> <span id="toastMessage" data-i18n="toast_success">تمت العملية بنجاح!</span>
     </div>
 
     <!-- Details Modal Popup Structure -->
@@ -362,5 +413,84 @@
 
     <!-- JS Link -->
     <script src="script.js"></script>
+
+    <!-- Firebase Realtime Database Module Integration -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
+      import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-database.js";
+
+      // 1. Firebase Project Config
+      const firebaseConfig = {
+        apiKey: "AIzaSyD7DKgpTUBrZLeGRIC77vqZEDcl7QeAeOo",
+        authDomain: "wesite-a7adf.firebaseapp.com",
+        databaseURL: "https://wesite-a7adf-default-rtdb.firebaseio.com",
+        projectId: "wesite-a7adf",
+        storageBucket: "wesite-a7adf.firebasestorage.app",
+        messagingSenderId: "667675927373",
+        appId: "1:667675927373:web:8b53859c0bf32083ac4d04"
+      };
+
+      // 2. Initialize Firebase & Database Reference
+      const app = initializeApp(firebaseConfig);
+      const database = getDatabase(app);
+      const reviewsRef = ref(database, 'testimonials');
+
+      // 3. Listen for Live Feedback Data
+      const testimonialsGrid = document.getElementById('testimonialsGrid');
+
+      onValue(reviewsRef, (snapshot) => {
+        const data = snapshot.val();
+        if (data && testimonialsGrid) {
+          testimonialsGrid.innerHTML = ''; // Clear older static elements
+          
+          Object.keys(data).forEach((key) => {
+            const review = data[key];
+            const card = document.createElement('div');
+            card.className = 'testimonial-card';
+            card.innerHTML = `
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <p>"${review.text}"</p>
+              <h4>${review.name}</h4>
+              <span class="client-title">زائر / عميل</span>
+            `;
+            testimonialsGrid.appendChild(card);
+          });
+        }
+      });
+
+      // 4. Handle Feedback Form Submissions
+      const feedbackForm = document.getElementById('feedbackForm');
+      if (feedbackForm) {
+        feedbackForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          
+          const nameInput = document.getElementById('feedbackName');
+          const textInput = document.getElementById('feedbackText');
+
+          const name = nameInput ? nameInput.value.trim() : '';
+          const text = textInput ? textInput.value.trim() : '';
+
+          if (name && text) {
+            push(reviewsRef, {
+              name: name,
+              text: text,
+              timestamp: Date.now()
+            }).then(() => {
+              alert("شكراً لك! تم إرسال تقييمك وحفظه أونلاين بنجاح 🌟");
+              feedbackForm.reset();
+            }).catch((error) => {
+              console.error("حدث خطأ أثناء حفظ التقييم:", error);
+              alert("عفواً، حدث خطأ أثناء إرسال التقييم.");
+            });
+          }
+        });
+      }
+    </script>
 </body>
 </html>

@@ -876,3 +876,182 @@ section {
     color: #27c93f;
     font-size: 1.2rem;
 }
+/* ==========================================
+   Testimonials & Feedback Section (Luxurious Style)
+   ========================================== */
+.testimonials-section {
+    padding: 80px 20px;
+    background: var(--bg-secondary, #161b22);
+    position: relative;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.testimonials-section .section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+    background: linear-gradient(135deg, #58a6ff, #27c93f);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    max-width: 1100px;
+    margin: 0 auto 50px auto;
+}
+
+.testimonial-card {
+    background: var(--card-bg, #0d1117);
+    border: 1px solid rgba(88, 166, 255, 0.15);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonial-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #58a6ff, #27c93f);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(88, 166, 255, 0.4);
+    box-shadow: 0 15px 35px rgba(88, 166, 255, 0.1);
+}
+
+.testimonial-card:hover::before {
+    opacity: 1;
+}
+
+.testimonial-card .stars {
+    color: #ffc107;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+}
+
+.testimonial-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: var(--text-color, #c9d1d9);
+    font-style: italic;
+}
+
+.testimonial-card h4 {
+    font-size: 1.15rem;
+    margin-bottom: 4px;
+    color: var(--heading-color, #ffffff);
+    font-weight: 600;
+}
+
+.client-title {
+    font-size: 0.85rem;
+    color: #8b949e;
+    font-weight: 500;
+}
+
+/* Add Feedback Form Box (Luxurious Glassmorphism style) */
+.add-feedback-box {
+    max-width: 650px;
+    margin: 0 auto;
+    background: var(--card-bg, #0d1117);
+    border: 1px solid rgba(88, 166, 255, 0.2);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.add-feedback-box h3 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1.5rem;
+    color: var(--heading-color, #ffffff);
+}
+
+.add-feedback-box .form-group {
+    margin-bottom: 20px;
+}
+
+.add-feedback-box input, 
+.add-feedback-box textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    font-family: inherit;
+    background: rgba(22, 27, 34, 0.8);
+    color: var(--text-color, #ffffff);
+    outline: none;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.add-feedback-box input:focus, 
+.add-feedback-box textarea:focus {
+    border-color: #58a6ff;
+    box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.15);
+    background: #0d1117;
+}
+
+.btn-submit-feedback {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #238636, #2ea043);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(35, 134, 54, 0.3);
+}
+
+.btn-submit-feedback:hover {
+    background: linear-gradient(135deg, #2ea043, #238636);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(35, 134, 54, 0.4);
+}
+.admin-quick-link {
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    width: 45px;
+    height: 45px;
+    background: rgba(13, 17, 23, 0.85);
+    border: 1px solid rgba(88, 166, 255, 0.3);
+    backdrop-filter: blur(8px);
+    color: #58a6ff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+    z-index: 9999;
+}
+
+.admin-quick-link:hover {
+    background: #58a6ff;
+    color: #0d1117;
+    transform: scale(1.1) rotate(10deg);
+    box-shadow: 0 0 20px rgba(88, 166, 255, 0.6);
+}
