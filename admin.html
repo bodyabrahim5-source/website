@@ -181,7 +181,7 @@
         <p>أدخل كلمة المرور للوصول إلى التقييمات والتحكم بها:</p>
         <div class="input-group">
             <input type="password" id="passInput" placeholder="كلمة المرور...">
-            <button class="btn-submit" onclick="login()">دخول</button>
+            <button id="loginBtn" class="btn-submit" onclick="login()">دخول</button>
         </div>
     </div>
 
@@ -194,7 +194,7 @@
     </div>
 </div>
 
-<!-- Firebase SDK Compat (عشان يشتغل مباشرة من أجهزة اللاب دون مشاكل CORS) -->
+<!-- Firebase SDK Compat -->
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
 <script src="admin.js"></script>

@@ -15,8 +15,9 @@ if (!firebase.apps.length) {
 }
 const db = firebase.database();
 
-// 3. 🔑 كلمة السر للوحة التحكم
-const ADMIN_PASSWORD = "##22/8/2005##";
+// 3. 🔒 كلمة السر مشفرة بـ Base64 (مش هتظهر في الـ Inspect)
+// النص ده هو التشفير الخاص بـ ##22/8/2005##
+const ENCRYPTED_PASS = "IyMyMi84LzIwMDUjIw==";
 
 // 4. دالة تسجيل الدخول
 function login() {
@@ -24,12 +25,17 @@ function login() {
     const loginSection = document.getElementById('loginSection');
     const adminPanel = document.getElementById('adminPanel');
 
-    if (passInput && passInput.value === ADMIN_PASSWORD) {
-        loginSection.style.display = 'none';
-        adminPanel.style.display = 'block';
-        loadComments();
-    } else {
-        alert("❌ كلمة المرور غير صحيحة يا هندسة!");
+    if (passInput) {
+        // تحويل المدخل إلى Base64 للمقارنة
+        const encodedInput = btoa(unescape(encodeURIComponent(passInput.value.trim())));
+
+        if (encodedInput === ENCRYPTED_PASS) {
+            loginSection.style.display = 'none';
+            adminPanel.style.display = 'block';
+            loadComments();
+        } else {
+            alert("❌ كلمة المرور غير صحيحة يا هندسة!");
+        }
     }
 }
 
